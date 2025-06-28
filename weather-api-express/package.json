@@ -1,0 +1,27 @@
+{
+  "name": "weather-api",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node App.js",
+    "watch": "node --watch App.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alessio-Gasbarro/weather-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alessio-Gasbarro/weather-api/issues"
+  },
+  "homepage": "https://github.com/Alessio-Gasbarro/weather-api#readme",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.10.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.0.0",
+    "express": "^5.1.0"
+  }
+}
