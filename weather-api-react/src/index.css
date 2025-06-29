@@ -1,0 +1,58 @@
+/* Reset base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Imposta uno stile generale per il body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+    color: #333;
+    padding: 24px;
+    text-align: center;
+}
+
+/* Titolo principale */
+h1 {
+    font-size: 2rem;
+    margin-bottom: 24px;
+}
+
+/* Layout delle capitali */
+.capital-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+}
+
+/* Card individuale */
+.capital-card {
+    background-color: #fff;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    width: 160px;
+    transition: transform 0.2s;
+}
+
+.capital-card:hover {
+    transform: scale(1.05);
+}
+
+.capital-card img {
+    width: 80px;
+    height: 80px;
+}
+
+.capital-card h3 {
+    font-size: 1rem;
+    margin: 8px 0;
+}
+
+.capital-card p {
+    margin: 4px 0;
+    font-size: 0.9rem;
+}
