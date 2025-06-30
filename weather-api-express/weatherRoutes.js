@@ -11,6 +11,18 @@ const capitals = [
     { city: 'Buenos Aires', country: 'AR' },
     { city: 'Vienna', country: 'AT' },
     { city: 'Dublin', country: 'IE' },
+    { city: 'Madrid', country: 'ES' },
+    { city: 'Lisbon', country: 'PT' },
+    { city: 'Ottawa', country: 'CA' },
+    { city: 'Washington', country: 'US' },
+    { city: 'Canberra', country: 'AU' },
+    { city: 'Wellington', country: 'NZ' },
+    { city: 'Cairo', country: 'EG' },
+    { city: 'Pretoria', country: 'ZA' },
+    { city: 'Beijing', country: 'CN' },
+    { city: 'Moscow', country: 'RU' },
+    { city: 'Helsinki', country: 'FI' },
+    { city: 'Stockholm', country: 'SE' }
 ];
 
 router.get('/all-capitals', async (req, res) => {

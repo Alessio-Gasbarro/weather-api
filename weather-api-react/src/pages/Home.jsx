@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import CapitalList from '../components/CapitalList';
-import CapitalDetails from '../components/CapitalDetails';
+import CapitalGrid from '../components/CapitalGrid';
+import Header from '../components/Header';
 
 function Home() {
     const [capitals, setCapitals] = useState([]);
@@ -22,16 +22,12 @@ function Home() {
     }, []);
 
     return (
-        <div className="App">
-            <h1>Attuali condizioni Meteo</h1>
-            <h1>- Capitali del Mondo -</h1>
+        <div className="home-container">
+            <Header />
             {loading ? (
                 <p>Caricamento...</p>
             ) : (
-                <>
-                    <CapitalList data={capitals} onSelect={setSelected} selectedCity={selected?.city} />
-                    <CapitalDetails data={selected} />
-                </>
+                <CapitalGrid data={capitals} onSelect={setSelected} selectedCity={selected?.city} selectedData={selected} />
             )}
         </div>
     );

@@ -1,5 +1,6 @@
 import React from 'react';
 import { WiStrongWind, WiHumidity, WiSunrise, WiSunset, WiBarometer, WiDaySunny } from 'react-icons/wi';
+import { FaMapLocation } from "react-icons/fa6";
 
 function formatUnixTime(timestamp) {
     const date = new Date(timestamp * 1000);
@@ -58,9 +59,9 @@ function CapitalDetails({ data }) {
                     <span>{formatUnixTime(data.sunset)}</span>
                 </div>
                 <div className="detail-item coord">
+                    <FaMapLocation size={32} />
                     <p>Coordinate</p>
-                    <span>Lat: {data.coord.lat}</span>
-                    <span>Lon: {data.coord.lon}</span>
+                    <span>Lat: {data.coord.lat}</span><span>Lon: {data.coord.lon}</span>
                 </div>
             </div>
         </div>
