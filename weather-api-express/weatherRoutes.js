@@ -8,45 +8,51 @@ const capitals = [
     { city: 'London', country: 'GB' },
     { city: 'Berlin', country: 'DE' },
     { city: 'Tokyo', country: 'JP' },
-    // Volendo si possono aggiungere altre capitali
+    { city: 'Buenos Aires', country: 'AR' },
+    { city: 'Vienna', country: 'AT' },
+    { city: 'Dublin', country: 'IE' },
 ];
 
 router.get('/all-capitals', async (req, res) => {
     const apiKey = process.env.OPENWEATHER_API_KEY;
-    console.log('API Key:', apiKey); // Verifica che la chiave venga letta
 
     try {
         const weatherData = await Promise.all(
             capitals.map(async ({ city, country }) => {
-                try {
-                    const response = await axios.get(
-                        'https://api.openweathermap.org/data/2.5/weather',
-                        {
-                            params: {
-                                q: `${city},${country}`,
-                                appid: apiKey,
-                                units: 'metric',
-                                lang: 'it'
-                            }
+                const response = await axios.get(
+                    'https://api.openweathermap.org/data/2.5/weather',
+                    {
+                        params: {
+                            q: `${city},${country}`,
+                            appid: apiKey,
+                            units: 'metric',
+                            lang: 'it'
                         }
-                    );
-                    return {
-                        city,
-                        country,
-                        temp: response.data.main.temp,
-                        condition: response.data.weather[0].description,
-                        icon: response.data.weather[0].icon
-                    };
-                } catch (error) {
-                    console.error(`Errore API per ${city}:`, error.response?.data || error.message);
-                    return { city, country, error: true, message: error.response?.data?.message || error.message };
-                }
+                    }
+                );
+
+                const data = response.data;
+
+                return {
+                    city,
+                    country,
+                    temp: data.main.temp,
+                    condition: data.weather[0].description,
+                    icon: data.weather[0].icon,
+                    humidity: data.main.humidity,
+                    pressure: data.main.pressure,
+                    windSpeed: data.wind.speed,
+                    visibility: data.visibility,
+                    sunrise: data.sys.sunrise,
+                    sunset: data.sys.sunset,
+                    coord: data.coord
+                };
             })
         );
 
         res.json(weatherData);
     } catch (err) {
-        console.error('Errore generale:', err);
+        console.error(err.message);
         res.status(500).json({ error: 'Errore nel recupero dei dati meteo' });
     }
 });
