@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import CapitalGrid from '../components/CapitalGrid';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 function Home() {
     const [capitals, setCapitals] = useState([]);
@@ -29,6 +30,7 @@ function Home() {
             ) : (
                 <CapitalGrid data={capitals} onSelect={setSelected} selectedCity={selected?.city} selectedData={selected} />
             )}
+            <Footer />
         </div>
     );
 }

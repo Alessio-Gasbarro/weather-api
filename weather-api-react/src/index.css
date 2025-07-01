@@ -6,9 +6,13 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #fafafa;
+    background: radial-gradient(circle,
+            gold 0%,
+            orange 30%,
+            skyblue 60%,
+            #003366 100%);
     color: #333;
-    padding: 24px;
+    padding: 12px;
     text-align: center;
 }
 
@@ -21,6 +25,8 @@ body {
     background-color: #f0faff;
     box-shadow: 0 2px 10px rgba(0, 123, 255, 0.1);
     border-radius: 16px;
+    width: 60%;
+    justify-self: center;
 }
 
 .logo h1 {
@@ -229,4 +235,21 @@ body {
 
 .detail-item.coord span {
     font-size: 0.7rem;
+}
+
+.site-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 24px;
+    margin-top: 32px;
+    background-color: #f0faff;
+    box-shadow: 0 2px 10px rgba(0, 123, 255, 0.1);
+    border-radius: 16px;
+    width: 60%;
+    justify-self: center;
+}
+
+.col-30 {
+    width: 30%;
 }
